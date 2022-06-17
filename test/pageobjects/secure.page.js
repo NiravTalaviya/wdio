@@ -12,6 +12,10 @@ class SecurePage extends Page {
     get flashAlert () {
         return $('#flash');
     }
+
+    get LogoutBtn (){
+        return $("[href='/logout']")
+    }
 }
 
 module.exports = new SecurePage();

@@ -9,10 +9,12 @@ describe('My Login application', () => {
         await expect(SecurePage.flashAlert).toBeExisting();
         await expect(SecurePage.flashAlert).toHaveTextContaining(
             'You logged into a secure area!');
-        
+
+        // Click on Logout button
+        await SecurePage.LogoutBtn.click();       
     });
 
-    it.only('w3schools tests', async ()=> {
+    it('w3schools tests', async ()=> {
         await browser.url('https://www.w3schools.com/')
     })
 });
