@@ -1,5 +1,7 @@
 const LoginPage = require('../pageobjects/login.page');
 const SecurePage = require('../pageobjects/secure.page');
+const UpworkLogIn = require('../pageobjects/upworklogin');
+const CypressHome = require('../pageobjects/cypress.page');
 
 describe('My Login application', () => {
     it('should login with valid credentials', async () => {
@@ -15,8 +17,20 @@ describe('My Login application', () => {
     });
 
     it('w3schools tests', async ()=> {
-        await browser.url('https://www.w3schools.com/')
+        await browser.url('https://www.upwork.com/ab/f/home')
+        await UpworkLogIn.enterUserName("Dummy");
     })
+
+    it('Click on login with gmail', async () => {
+        await browser.url('https://www.upwork.com/ab/f/home')
+        await UpworkLogIn.clickOnLogInUsingGoogle();
+    })
+
+    it("Cypress Home page close cookie section", async () => {
+        await CypressHome.open()
+        await CypressHome.closeCookieSection()
+    })
+    
 });
 
 
