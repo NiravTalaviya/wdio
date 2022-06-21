@@ -3,21 +3,27 @@ class CypressHome {
         return $('a[href="https://dashboard.cypress.io/login"]')
     }
 
-    get pricingBtn(){
-        return $("a[href='/pricing']")
+    get navToPricingBtn(){
+        return $("header a[href='/pricing']")
     }
-    
+
+    get navToFeatureBtn() {
+        return $("header a[href='/features']")
+    }
+
+    get pricingEnterpriseSolutionDiv() {
+        return $(".container div[color='gray'] button")
+    }
+
     get closeBtnPopUp(){
         return $("#onetrust-consent-sdk #onetrust-close-btn-container button")
     }
 
     async closeCookieSection(){
-        await this.open()
         const btn = await this.closeBtnPopUp
         await btn.waitForDisplayed({timeout: 50000})
         await btn.click()
     }
-
 
     async open() {
         await browser.url("https://www.cypress.io/")

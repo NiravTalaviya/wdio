@@ -30,6 +30,49 @@ describe('My Login application', () => {
         await CypressHome.open()
         await CypressHome.closeCookieSection()
     })
+
+    it("Cypress open features page", async ()=> {
+        await CypressHome.open()
+        await CypressHome.closeCookieSection()
+
+        // Click on navigate to feature page
+        await CypressHome.navToFeatureBtn.click()    
+    })
+
+    it("Cypress open pricing page and click on Contact us Enterprise and close it", async ()=> {
+        await CypressHome.open()
+        await CypressHome.closeCookieSection()
+        
+        // Click on navigate to pricing page
+        await CypressHome.navToPricingBtn.click()
+
+        await CypressHome.pricingEnterpriseSolutionDiv.scrollIntoView()
+        // await CypressHome.closeCookieSection()
+        await $('div[color="gray"] button').click()
+
+        await $('#modal__close').click()
+        await browser.pause(4000000)
+        // await browser.debug()
+    })
+
+    it.only("Cypress open pricing page and click on Contact us Enterprise and fill the form", async ()=> {
+        await CypressHome.open()
+        await CypressHome.closeCookieSection()
+        
+        // Click on navigate to pricing page
+        await CypressHome.navToPricingBtn.click()
+
+        await CypressHome.pricingEnterpriseSolutionDiv.scrollIntoView()
+        await CypressHome.closeCookieSection()
+        await $('div[color="gray"] button').click()
+
+
+        const form = $('#modal__body').$('form')
+
+        await form.$('input[name="firstname"]').setValue('firstname')
+        // await browser.pause(4000000)
+        // await browser.debug()
+    })
     
 });
 
