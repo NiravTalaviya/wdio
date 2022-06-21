@@ -55,7 +55,7 @@ describe('My Login application', () => {
         // await browser.debug()
     })
 
-    it.only("Cypress open pricing page and click on Contact us Enterprise and fill the form", async ()=> {
+    it("Cypress open pricing page and click on Contact us Enterprise and fill the form", async ()=> {
         await CypressHome.open()
         await CypressHome.closeCookieSection()
         
@@ -66,12 +66,19 @@ describe('My Login application', () => {
         await CypressHome.closeCookieSection()
         await $('div[color="gray"] button').click()
 
-
         const form = $('#modal__body').$('form')
 
         await form.$('input[name="firstname"]').setValue('firstname')
-        // await browser.pause(4000000)
-        // await browser.debug()
+    })
+
+
+    it.only("Conditional execution - close cookie section only if it exist", async ()=> {
+        await CypressHome.open()
+        await CypressHome.closeCookieSection()
+        await CypressHome.closeCookieSection()
+        await CypressHome.closeCookieSection()
+        await CypressHome.closeCookieSection()
+        await CypressHome.closeCookieSection()
     })
     
 });
